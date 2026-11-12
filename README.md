@@ -169,24 +169,23 @@ Through this project, I developed a clearer understanding of:
 
 The repository is intended to contain the SQL scripts and learning documentation organised as follows:
 
-```text
 sql-server-employee-auditing-system/
 │
 ├── README.md
 │
 ├── sql/
-│   ├── 01_employee_table_setup.sql
-│   ├── 02_audit_history_table.sql
-│   ├── 03_insert_audit_trigger.sql
-│   ├── 04_update_audit_trigger.sql
-│   ├── 05_delete_audit_trigger.sql
-│   ├── 06_audit_investigation_queries.sql
-│   └── 07_backup_restore.sql
+│   ├── 01_employee_rowid_and_primary_key.sql
+│   ├── 02_employee_audit_history_table.sql
+│   ├── 03_sql_server_audit.sql
+│   ├── 04_change_data_capture.sql
+│   ├── 05_insert_audit_trigger.sql
+│   ├── 06_update_audit_trigger.sql
+│   ├── 07_delete_audit_trigger.sql
+│   ├── 08_audit_investigation_queries.sql
+│   └── 09_backup_and_restore.sql
 │
 └── docs/
     └── auditing-concepts.md
-```
-
 ## Scope and Learning Status
 
 This was a practical learning project built by extending an existing local practice database. It was not a production banking database or a complete enterprise database deployment.
