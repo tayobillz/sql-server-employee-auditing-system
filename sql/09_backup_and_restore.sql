@@ -2,7 +2,7 @@
 USE master;
 GO
 
--- Check the database recovery model
+-- 1. Check the database recovery model
 SELECT
     name,
     recovery_model_desc
@@ -10,7 +10,8 @@ FROM sys.databases
 WHERE name = 'EmployeeManagementDB';
 GO
 
--- Back up the database
+
+-- 2. Back up the database
 BACKUP DATABASE EmployeeManagementDB
 TO DISK = 'C:\SQLBackups\EmployeeManagementDB_BeforeIdentity.bak'
 WITH
@@ -18,10 +19,14 @@ WITH
     STATS = 10;
 GO
 
--- Restore the database
--- Run this section only when intentionally restoring
--- and after confirming the backup file exists.
 
+-- 3. Restore database (REFERENCE ONLY)
+-- WARNING:
+-- This backup was created before EmployeeRowID was added.
+-- Restoring it will revert the database to its earlier state.
+-- The commands below are commented out to prevent accidental execution.
+
+/*
 ALTER DATABASE EmployeeManagementDB
 SET SINGLE_USER
 WITH ROLLBACK IMMEDIATE;
@@ -31,9 +36,11 @@ RESTORE DATABASE EmployeeManagementDB
 FROM DISK = 'C:\SQLBackups\EmployeeManagementDB_BeforeIdentity.bak'
 WITH
     CHECKSUM,
-    STATS = 10;
+    STATS = 10,
+    REPLACE;
 GO
 
 ALTER DATABASE EmployeeManagementDB
 SET MULTI_USER;
 GO
+*/
